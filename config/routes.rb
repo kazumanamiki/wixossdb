@@ -1,4 +1,8 @@
 Wixossdb::Application.routes.draw do
+  resources :cards, only: [:index, :show, :new, :edit, :create, :update]
+  root 'cards#index'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

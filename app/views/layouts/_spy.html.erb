@@ -1,0 +1,13 @@
+<div class="nav-search">
+	<ul class="nav nav-pills nav-stacked">
+		<li class="active">
+			<a href="#">
+				<span class="badge pull-right"><%= @cards.count %></span>
+				検索結果
+			</a>
+		</li>
+		<% @cards.find_each do |card| %>
+			<li><a href="#nav_<%= card.card_number %>"><%= card.name %></a></li>
+		<% end %>
+	</ul>
+</div>

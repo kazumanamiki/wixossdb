@@ -1,0 +1,56 @@
+<h2>検索条件</h2>
+
+<%= form_tag(cards_path, method: :get) do |f| %>
+	<div class="form-group">
+		<%= label_tag "sq[card_number]", "カードID" %>
+		<%= text_field_tag "sq[card_number]", @sq[:card_number], class: "form-control", placeholder: "例：WX01" %>
+	</div>
+
+	<div class="form-group">
+		<%= label_tag 'sq[card_rare]', "レア" %>
+		<%= select_tag 'sq[card_rare]', options_for_select([["指定無し", nil], ["LR(ルリグレア)", "0"], ["SR(スーパーレア)", "1"], ["R(レア)", "2"], ["LC(ルリグコモン)", "3"], ["C(コモン)", "3"]], @sq[:card_rare]), class: "form-control", multiple: true %>
+	</div>
+
+	<div class="form-group">
+		<%= label_tag 'sq[name]', "カード名" %><br>
+		<%= text_field_tag "sq[name]", @sq[:name], class: "form-control", placeholder: "例：タマ" %>
+	</div>
+
+	<div class="form-group">
+		<%= label_tag 'sq[card_kind]', "カード種類" %>
+		<%= select_tag 'sq[card_kind]', options_for_select([["指定無し", nil], ["ルリグ", "0"], ["アーツ", "1"], ["シグニ", "2"], ["スペル", "3"]], @sq[:card_kind]), class: "form-control", multiple: true %>
+	</div>
+
+	<!-- TODO Kind -->
+
+	<div class="form-group">
+		<%= label_tag 'sq[card_color]', "色" %>
+		<%= select_tag 'sq[card_color]', options_for_select([["指定無し", nil], ["白", "0"], ["赤", "1"], ["青", "2"], ["緑", "3"], ["無", "4"]], @sq[:card_color]), class: "form-control", multiple: true %>
+	</div>
+
+	<div class="form-group">
+		<%= label_tag 'sq[guard]', "ガード" %>
+		<%= select_tag 'sq[guard]', options_for_select([["指定無し", nil], ["有", "1"], ["無", "0"]], @sq[:guard]), class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= label_tag 'sq[grow_cost]', "グロウコスト" %>
+		<%= text_field_tag "sq[grow_cost]", @sq[:grow_cost], class: "form-control", placeholder: "例：白白赤" %>
+	</div>
+
+	<div class="form-group">
+		<%= label_tag 'sq[card_cost]', "コスト" %>
+		<%= text_field_tag "sq[card_cost]", @sq[:card_cost], class: "form-control", placeholder: "例：白白赤" %>
+	</div>
+
+	<div class="form-group">
+		<%= label_tag 'sq[condition]', "限定条件" %>
+		<%= text_field_tag "sq[condition]", @sq[:condition], class: "form-control", placeholder: "例：ピルルク" %>
+	</div>
+
+
+
+	<div class="form-group">
+	<%= submit_tag "検索", class: "btn btn-default" %>
+	</div>
+<% end %>

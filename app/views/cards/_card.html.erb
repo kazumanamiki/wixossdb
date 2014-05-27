@@ -1,0 +1,60 @@
+<div id="nav_<%= card.card_number %>" class="panel panel-default">
+	<dic class="clearfix">
+		<span class="card_number"><%= card.card_number %></span>
+		<span class="card_rare pull-right"><%= card.card_rare %></span>
+	</dic>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2><%= card.name %><small>＜<%= card.name_yomi %>＞</small></h2>
+		</div>
+		<div class="panel-body">
+			<table class="table table-bordered">
+				<tr>
+					<th>カード種類</th><td><%= card.card_kind %></td>
+					<th>色</th><td><%= card.card_color %></td>
+					<th>リミット</th><td><%= card.card_limit %></td>
+				</tr>
+				<tr>
+					<th>カードタイプ</th><td><%= card.card_type %></td>
+					<th>レベル</th><td><%= card.card_level %></td>
+					<th>ガード</th><td><%= card.guard %></td>
+				</tr>
+				<tr>
+					<th>グロウコスト</th><td><%= card.grow_cost %></td>
+					<th>コスト</th><td><%= card.card_cost %></td>
+				</tr>
+				<tr>
+					<th>パワー</th><td><%= card.card_power %></td>
+					<th>限定条件</th><td><%= card.condition %></td>
+				</tr>
+			</table>
+		<% unless card.card_text.blank? %>
+			<div>
+				<%= card.card_text %>
+			</div>
+		<% end %>
+		<% unless card.life_burst.blank? %>
+			<div>
+				<strong>ライフバースト</strong><br>
+				<%= card.life_burst %>
+			</div>
+		<% end %>
+		<% unless card.view_text.blank? %>
+			<div class="clearfix">
+				<span class="pull-right">
+					<small><%= card.view_text %></small>
+				</span>
+			</div>
+		<% end %>
+		</div>
+	</div>
+	<div class="clearfix">
+		<div class="pull-right">
+			<% if index %>
+				<span><%= link_to 'Show', card %></span>
+			<% end %>
+			<span><%= link_to 'Edit', edit_card_path(card) %></span>
+
+		</div>
+	</div>
+</div>

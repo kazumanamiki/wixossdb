@@ -1,0 +1,85 @@
+<%= form_for(@card) do |f| %>
+  <% if @card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@card.errors.count, "error") %> prohibited this card from being saved:</h2>
+
+      <ul>
+      <% @card.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :card_number %><br>
+    <%= f.text_field :card_number %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :name_yomi %><br>
+    <%= f.text_field :name_yomi %>
+  </div>
+  <div class="field">
+    <%= f.label :card_rare %><br>
+    <%= f.number_field :card_rare %>
+  </div>
+  <div class="field">
+    <%= f.label :card_kind %><br>
+    <%= f.number_field :card_kind %>
+  </div>
+  <div class="field">
+    <%= f.label :card_type %><br>
+    <%= f.number_field :card_type %>
+  </div>
+  <div class="field">
+    <%= f.label :card_color %><br>
+    <%= f.number_field :card_color %>
+  </div>
+  <div class="field">
+    <%= f.label :card_level %><br>
+    <%= f.number_field :card_level %>
+  </div>
+  <div class="field">
+    <%= f.label :grow_cost %><br>
+    <%= f.text_field :grow_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :card_cost %><br>
+    <%= f.text_field :card_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :card_limit %><br>
+    <%= f.number_field :card_limit %>
+  </div>
+  <div class="field">
+    <%= f.label :card_power %><br>
+    <%= f.number_field :card_power %>
+  </div>
+  <div class="field">
+    <%= f.label :condition %><br>
+    <%= f.text_field :condition %>
+  </div>
+  <div class="field">
+    <%= f.label :guard %><br>
+    <%= f.number_field :guard %>
+  </div>
+  <div class="field">
+    <%= f.label :card_text %><br>
+    <%= f.text_field :card_text %>
+  </div>
+  <div class="field">
+    <%= f.label :life_burst %><br>
+    <%= f.text_field :life_burst %>
+  </div>
+  <div class="field">
+    <%= f.label :view_text %><br>
+    <%= f.text_field :view_text %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

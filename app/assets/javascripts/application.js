@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$('body').scrollspy({ target: '.navbar-search' });
