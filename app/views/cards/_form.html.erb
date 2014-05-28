@@ -65,7 +65,7 @@
   </div>
   <div class="form-group">
     <%= f.label :guard, "ガード(あれば「有」なければ空欄)" %><br>
-    <%= f.number_field :guard, class: "form-control", placeholder: "関係ないパラメータは空欄で良い" %>
+    <%= f.text_field :guard, class: "form-control", placeholder: "関係ないパラメータは空欄で良い" %>
   </div>
   <div class="form-group">
     <%= f.label :card_text, "カードのテキスト([]で囲むとアイコンに置換される。複数行の改行には「||」を入れる)" %><br>
