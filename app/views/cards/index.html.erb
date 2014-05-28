@@ -1,3 +1,6 @@
-<% @cards.each do |card| %>
+<% @cards.each_with_index do |card, index| %>
+	<% if index == 0 || index % 3 == 0 %>
+		<%= render 'share/afe' %>
+	<% end %>
 	<%= render 'card', card: card, index: :true %>
 <% end %>
