@@ -4,14 +4,18 @@
 		<span class="card_rare pull-right"><%= card.card_rare %></span>
 	</dic>
 	<div class="panel panel-default">
-		<div class="panel-heading">
+		<div class="panel-heading" style="background-color: <%= color_string(card.card_color) %>;">
 			<h2><%= card.name %><small>＜<%= card.name_yomi %>＞</small></h2>
 		</div>
 		<div class="panel-body">
 			<table class="table table-bordered">
 				<tr>
 					<th>カード種類</th><td><%= format_table_data(card.card_kind) %></td>
-					<th>色</th><td><%= format_table_data(card.card_color) %></td>
+					<th>色</th>
+					<td>
+						<%= image_tag color_image_file(card.card_color), alt: card.card_color %>
+						<%= format_table_data(card.card_color) %>
+					</td>
 					<th>リミット</th><td><%= format_table_data(card.card_limit) %></td>
 				</tr>
 				<tr>
