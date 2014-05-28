@@ -1,4 +1,5 @@
 class Card < ActiveRecord::Base
+	default_scope -> { order('card_number ASC') }
 
 	before_save :create_search_all_text
 

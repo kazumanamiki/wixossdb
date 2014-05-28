@@ -2,13 +2,15 @@ class CardsController < ApplicationController
   before_action :set_card, only: [:show, :edit, :update, :destroy]
 
   def index
-    search_params = {}
-    search_params.merge!(original_search_params)
-    @cards = Card.search(search_params).result(distinct: true)
+    if params.key?(:sq)
+      search_params = {}
+      search_params.merge!(original_search_params)
+      @cards = Card.search(search_params).result(distinct: true)
+    else
+      @cards = []
+    end
   end
 
-  # GET /cards/1
-  # GET /cards/1.json
   def show
   end
 
