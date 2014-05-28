@@ -5,9 +5,15 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="/">WIXOSSデータベース</a>
+		<a class="navbar-brand" href="/">WIXOSSカードデータベース</a>
 	</div>
 	<div class="navbar-collapse collapse">
+		<%= form_tag(cards_path, method: :get, class: "navbar-form navbar-left") do %>
+			<div class="form-group">
+				<%= text_field_tag "sq[all_text]", @sq[:all_text], class: "form-control", placeholder: "カード検索" %>
+			</div>
+			<%= submit_tag "検索", class: "btn btn-default" %>
+		<% end %>
 		<ul class="nav navbar-nav">
 			<li><a href="<%= new_card_path %>">カード追加</a></li>
 			<li><a href="http://www.takaratomy.co.jp/products/wixoss/">WIXOSS公式</a></li>

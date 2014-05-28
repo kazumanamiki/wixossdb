@@ -1,0 +1,66 @@
+body {
+	font-size: 1.3em;
+}
+
+h2 {
+	margin: 10px 0px 5px 0px;
+	font-size: 1.5em;
+}
+
+div.panel-heading {
+	padding: 3px 10px;
+}
+
+.nav.nav-pills a {
+	padding: 5px 15px;
+}
+
+.table {
+	margin-bottom: 3px
+}
+
+.panel {
+	margin-bottom: 3px;
+
+	.panel-body {
+		padding: 5px;
+	}
+}
+
+.form-group {
+	margin-bottom: 5px;
+
+	label {
+		margin: 0;
+	}
+}
+
+input.form-control {
+	padding: 3px 6px;
+}
+
+/* 独自スタイル定義 */
+
+div.links {
+	padding: 3px 10px;
+}
+
+.card-text {
+	.line {
+		margin-bottom: 3px;
+	}
+}
+
+.view-text {
+	text-align: right;
+}
+
+.panel {
+	.card_number {
+		padding: 3px 10px;
+	}
+	.card_rare {
+		padding: 3px 10px;
+	}
+}
+

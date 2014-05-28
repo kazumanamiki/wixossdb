@@ -7,7 +7,6 @@ class CardsController < ApplicationController
     search_params = {}
     search_params.merge!(original_search_params)
     @cards = Card.search(search_params).result(distinct: true)
-    @sq = params.key?(:sq) ? params[:sq] : {}
   end
 
   # GET /cards/1
@@ -84,45 +83,24 @@ class CardsController < ApplicationController
       ret = {}
       return ret unless params.key?(:sq)
 
-      if params[:sq].key?(:card_number) && !params[:sq][:card_number].blank?
-        ret.merge!({ card_number_cont_any: params[:sq][:card_number].split(' ') })
-      end
+      ret.merge!({ search_all_text_cont_any: params[:sq][:all_text].split(' ') })   if params[:sq].key?(:all_text)        && !params[:sq][:all_text].blank?
 
-      if params[:sq].key?(:card_rare) && !params[:sq][:card_rare].blank?
-        ret.merge!({ card_rare_in: params[:sq][:card_rare] })
-      end
-
-      if params[:sq].key?(:name) && !params[:sq][:name].blank?
-        ret.merge!({ name_cont_any: params[:sq][:name].split(' ') }) if params[:sq].key?(:name)
-      end
-
-      if params[:sq].key?(:card_kind) && !params[:sq][:card_kind].blank?
-        ret.merge!({ card_kind_in: params[:sq][:card_kind] })
-      end
-
-      if params[:sq].key?(:card_color) && !params[:sq][:card_color].blank?
-        ret.merge!({ card_color_in: params[:sq][:card_color] })
-      end
-
-      if params[:sq].key?(:guard) && !params[:sq][:guard].blank?
-        if params[:sq][:guard] == "1"
-          ret.merge!({ guard_eq: "1" })
-        else
-          ret.merge!({ guard_not_eq: "1" })
-        end
-      end
-
-      if params[:sq].key?(:grow_cost) && !params[:sq][:grow_cost].blank?
-        ret.merge!({ grow_cost_cont_any: params[:sq][:grow_cost].split(' ') })
-      end
-
-      if params[:sq].key?(:card_cost) && !params[:sq][:card_cost].blank?
-        ret.merge!({ card_cost_cont_any: params[:sq][:card_cost].split(' ') })
-      end
-
-      if params[:sq].key?(:condition) && !params[:sq][:condition].blank?
-        ret.merge!({ condition_cont_any: params[:sq][:condition].split(' ') })
-      end
+      ret.merge!({ card_number_cont_any: params[:sq][:card_number].split(' ') })    if params[:sq].key?(:card_number)     && !params[:sq][:card_number].blank?
+      ret.merge!({ card_rare_cont_any: params[:sq][:card_rare].split(' ') })        if params[:sq].key?(:card_rare)       && !params[:sq][:card_rare].blank?
+      ret.merge!({ name_cont_any: params[:sq][:name].split(' ') })                  if params[:sq].key?(:name)            && !params[:sq][:name].blank?
+      ret.merge!({ card_kind_cont_any: params[:sq][:card_kind].split(' ') })        if params[:sq].key?(:card_kind)       && !params[:sq][:card_kind].blank?
+      ret.merge!({ card_type_cont_any: params[:sq][:card_type].split(' ') })        if params[:sq].key?(:card_type)       && !params[:sq][:card_type].blank?
+      ret.merge!({ card_color_cont_any: params[:sq][:card_color].split(' ') })      if params[:sq].key?(:card_color)      && !params[:sq][:card_color].blank?
+      ret.merge!({ guard_cont_any: params[:sq][:guard].split(' ') })                if params[:sq].key?(:guard)           && !params[:sq][:guard].blank?
+      ret.merge!({ grow_cost_cont_any: params[:sq][:grow_cost].split(' ') })        if params[:sq].key?(:grow_cost)       && !params[:sq][:grow_cost].blank?
+      ret.merge!({ card_cost_cont_any: params[:sq][:card_cost].split(' ') })        if params[:sq].key?(:card_cost)       && !params[:sq][:card_cost].blank?
+      ret.merge!({ condition_cont_any: params[:sq][:condition].split(' ') })        if params[:sq].key?(:condition)       && !params[:sq][:condition].blank?
+      ret.merge!({ card_level_gteq: params[:sq][:card_level_gteq] })                if params[:sq].key?(:card_level_gteq) && !params[:sq][:card_level_gteq].blank?
+      ret.merge!({ card_level_lteq: params[:sq][:card_level_lteq] })                if params[:sq].key?(:card_level_lteq) && !params[:sq][:card_level_lteq].blank?
+      ret.merge!({ card_power_gteq: params[:sq][:card_power_gteq] })                if params[:sq].key?(:card_power_gteq) && !params[:sq][:card_power_gteq].blank?
+      ret.merge!({ card_power_lteq: params[:sq][:card_power_lteq] })                if params[:sq].key?(:card_power_lteq) && !params[:sq][:card_power_lteq].blank?
+      ret.merge!({ card_text_cont_any: params[:sq][:card_text].split(' ') })        if params[:sq].key?(:card_text)       && !params[:sq][:card_text].blank?
+      ret.merge!({ life_burst_cont_any: params[:sq][:life_burst].split(' ') })      if params[:sq].key?(:life_burst)      && !params[:sq][:life_burst].blank?
 
       return ret
     end

@@ -1,0 +1,49 @@
+<%
+line_array = text.split("||")
+
+line_array.each do |line|
+%>
+	<div clas="line">
+<%
+	text_array = line.split('[')
+	text_array.each_with_index do |text, index|
+		if index == 0
+			%><%= text %><%
+		else
+			text.split(']').each_with_index do |text_second, index|
+				if index == 0
+					case text_second
+					when "ライフバースト"
+						%><%= image_tag "i_burst.png", alt: "ライフバースト" %><%
+					when "出現時能力", "出"
+						%><%= image_tag "i_arrival.png", alt: "出現時能力" %><%
+					when "常時能力", "常"
+						%><%= image_tag "i_regular.png", alt: "常時能力" %><%
+					when "起動能力", "起"
+						%><%= image_tag "i_starting.png", alt: "起動能力" %><%
+					when "白"
+						%><%= image_tag "i_white.png", alt: "白" %><%
+					when "赤"
+						%><%= image_tag "i_red.png", alt: "赤" %><%
+					when "緑"
+						%><%= image_tag "i_green.png", alt: "緑" %><%
+					when "青"
+						%><%= image_tag "i_blue.png", alt: "青" %><%
+					when "黒"
+						%><%= image_tag "i_black.png", alt: "黒" %><%
+					when "無"
+						%><%= image_tag "i_null.png", alt: "無" %><%
+					else
+						%><%= text_second %><%
+					end
+				else
+					%><%= text_second %><%
+				end
+			end
+		end
+	end
+%>
+	</div>
+<%
+end
+%>

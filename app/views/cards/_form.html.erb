@@ -11,73 +11,73 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :card_number %><br>
-    <%= f.text_field :card_number %>
+  <div class="form-group">
+    <%= f.label :card_number, "カード番号" %><br>
+    <%= f.text_field :card_number, class: "form-control", placeholder: "例：WX01-001" %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name, "カード名" %><br>
+    <%= f.text_field :name, class: "form-control", placeholder: "例：太陽の巫女　タマヨリヒメ" %>
   </div>
-  <div class="field">
-    <%= f.label :name_yomi %><br>
-    <%= f.text_field :name_yomi %>
+  <div class="form-group">
+    <%= f.label :name_yomi, "カード名の読み(半角カタカナ)" %><br>
+    <%= f.text_field :name_yomi, class: "form-control", placeholder: "例：ﾀｲﾖｳﾉﾐｺﾀﾏﾖﾘﾋﾒ 注意：半角カタカナ" %>
   </div>
-  <div class="field">
-    <%= f.label :card_rare %><br>
-    <%= f.number_field :card_rare %>
+  <div class="form-group">
+    <%= f.label :card_rare, "レアリティ(分からなければ空可能)" %><br>
+    <%= f.text_field :card_rare, class: "form-control", placeholder: "例：LR" %>
   </div>
-  <div class="field">
-    <%= f.label :card_kind %><br>
-    <%= f.number_field :card_kind %>
+  <div class="form-group">
+    <%= f.label :card_kind, "カード種別" %><br>
+    <%= f.text_field :card_kind, class: "form-control", placeholder: "例：ルリグ" %>
   </div>
-  <div class="field">
-    <%= f.label :card_type %><br>
-    <%= f.number_field :card_type %>
+  <div class="form-group">
+    <%= f.label :card_type, "カードタイプ"%><br>
+    <%= f.text_field :card_type, class: "form-control", placeholder: "例：タマ" %>
   </div>
-  <div class="field">
-    <%= f.label :card_color %><br>
-    <%= f.number_field :card_color %>
+  <div class="form-group">
+    <%= f.label :card_color, "色(白、黒、赤、青、緑、無)" %><br>
+    <%= f.text_field :card_color, class: "form-control", placeholder: "例：白" %>
   </div>
-  <div class="field">
-    <%= f.label :card_level %><br>
-    <%= f.number_field :card_level %>
+  <div class="form-group">
+    <%= f.label :card_level, "レベル" %><br>
+    <%= f.number_field :card_level, class: "form-control", placeholder: "例：4" %>
   </div>
-  <div class="field">
-    <%= f.label :grow_cost %><br>
-    <%= f.text_field :grow_cost %>
+  <div class="form-group">
+    <%= f.label :grow_cost, "グロウコスト(色×数) 「エックス」ではなく「掛ける」の変換" %><br>
+    <%= f.text_field :grow_cost, class: "form-control", placeholder: "例：白×3" %>
   </div>
-  <div class="field">
-    <%= f.label :card_cost %><br>
-    <%= f.text_field :card_cost %>
+  <div class="form-group">
+    <%= f.label :card_cost, "コスト(色×数) 「エックス」ではなく「掛ける」の変換" %><br>
+    <%= f.text_field :card_cost, class: "form-control", placeholder: "関係ないパラメータは空欄で良い" %>
   </div>
-  <div class="field">
-    <%= f.label :card_limit %><br>
-    <%= f.number_field :card_limit %>
+  <div class="form-group">
+    <%= f.label :card_limit, "リミット" %><br>
+    <%= f.number_field :card_limit, class: "form-control", placeholder: "例：11" %>
   </div>
-  <div class="field">
-    <%= f.label :card_power %><br>
-    <%= f.number_field :card_power %>
+  <div class="form-group">
+    <%= f.label :card_power, "パワー" %><br>
+    <%= f.number_field :card_power, class: "form-control", placeholder: "関係ないパラメータは空欄で良い" %>
   </div>
-  <div class="field">
-    <%= f.label :condition %><br>
-    <%= f.text_field :condition %>
+  <div class="form-group">
+    <%= f.label :condition, "条件(「タマ」 又は 「タマ限定」とすると良い)" %><br>
+    <%= f.text_field :condition, class: "form-control", placeholder: "関係ないパラメータは空欄で良い" %>
   </div>
-  <div class="field">
-    <%= f.label :guard %><br>
-    <%= f.number_field :guard %>
+  <div class="form-group">
+    <%= f.label :guard, "ガード(あれば「有」なければ空欄)" %><br>
+    <%= f.number_field :guard, class: "form-control", placeholder: "関係ないパラメータは空欄で良い" %>
   </div>
-  <div class="field">
-    <%= f.label :card_text %><br>
-    <%= f.text_field :card_text %>
+  <div class="form-group">
+    <%= f.label :card_text, "カードのテキスト([]で囲むとアイコンに置換される。複数行の改行には「||」を入れる)" %><br>
+    <%= f.text_area :card_text, class: "form-control", placeholder: "例：[起動能力][白]手札から白のシグニを１枚捨てる：対戦相手のシグニ1体を手札に戻す。" %>
   </div>
-  <div class="field">
-    <%= f.label :life_burst %><br>
-    <%= f.text_field :life_burst %>
+  <div class="form-group">
+    <%= f.label :life_burst, "ライフバースト([]で囲むとアイコンに置換される。複数行の改行には「||」を入れる)" %><br>
+    <%= f.text_area :life_burst, class: "form-control", placeholder: "なければ空欄で良い" %>
   </div>
-  <div class="field">
-    <%= f.label :view_text %><br>
-    <%= f.text_field :view_text %>
+  <div class="form-group">
+    <%= f.label :view_text, "イラストテキスト([]で囲むとアイコンに置換される。複数行の改行には「||」を入れる)" %><br>
+    <%= f.text_area :view_text, class: "form-control", placeholder: "例：こんにちは！||～タマ～" %>
   </div>
   <div class="actions">
     <%= f.submit %>
