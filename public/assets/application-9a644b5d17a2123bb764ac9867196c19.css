@@ -1,0 +1,91 @@
+@charset "UTF-8";/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+
+
+
+/* line 1, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
+body {
+  font-size: 1.3em;
+}
+
+/* line 5, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
+h2 {
+  margin: 10px 0px 5px 0px;
+  font-size: 1.5em;
+}
+
+/* line 10, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
+div.panel-heading {
+  padding: 3px 10px;
+}
+
+/* line 14, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
+.nav.nav-pills a {
+  padding: 5px 15px;
+}
+
+/* line 18, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
+.table {
+  margin-bottom: 3px;
+}
+
+/* line 22, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
+.panel {
+  margin-bottom: 3px;
+}
+/* line 25, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
+.panel .panel-body {
+  padding: 5px;
+}
+
+/* line 30, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
+.form-group {
+  margin-bottom: 5px;
+}
+/* line 33, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
+.form-group label {
+  margin: 0;
+}
+
+/* line 38, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
+input.form-control {
+  padding: 3px 6px;
+}
+
+/* 独自スタイル定義 */
+/* line 44, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
+div.links {
+  padding: 3px 10px;
+}
+
+/* line 49, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
+.card-text .line {
+  margin-bottom: 3px;
+}
+
+/* line 54, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
+.view-text {
+  text-align: right;
+}
+
+/* line 59, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
+.panel .card_number {
+  padding: 3px 10px;
+}
+/* line 62, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
+.panel .card_rare {
+  padding: 3px 10px;
+}
