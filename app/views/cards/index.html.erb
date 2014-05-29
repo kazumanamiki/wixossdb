@@ -1,5 +1,5 @@
 <% @cards.each_with_index do |card, index| %>
-	<% if index == 0 || index % 3 == 0 %>
+	<% if index == 0 || index % 5 == 0 %>
 		<%= render 'share/afe' %>
 	<% end %>
 	<%= render 'card', card: card, index: :true %>
