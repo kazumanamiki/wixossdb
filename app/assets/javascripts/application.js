@@ -14,5 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require default/loader
+//= require default/bootswatch
+
 
 $('body').scrollspy({ target: '.navbar-search' });

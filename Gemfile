@@ -34,3 +34,8 @@ group :production do
 	gem 'rails_12factor', '0.0.2'
 end
 
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootswatch-rails', '~> 3.1.1'
+gem 'twitter-bootswatch-rails-fontawesome', '~> 4.0'
+gem 'twitter-bootswatch-rails-helpers'
