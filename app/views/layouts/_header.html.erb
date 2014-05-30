@@ -13,6 +13,7 @@
 				<%= text_field_tag "sq[all_text]", @sq[:all_text], class: "form-control", placeholder: "カード検索" %>
 			</div>
 			<%= submit_tag "検索", class: "btn btn-default" %>
+			<a class="btn btn-default" data-toggle="modal" data-target="#search_modal">詳細検索</a>
 		<% end %>
 		<ul class="nav navbar-nav">
 			<li><a href="<%= new_card_path %>">カード追加</a></li>

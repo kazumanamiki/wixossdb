@@ -1,0 +1,94 @@
+<div class="modal fade" id="search_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">詳細検索</h4>
+      </div>
+      <%= form_tag(cards_path, method: :get) do |f| %>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <%= label_tag "sq[card_number]", "カードID" %>
+                <%= text_field_tag "sq[card_number]", @sq[:card_number], class: "form-control", placeholder: "例：WX01" %>
+              </div>
+              <div class="form-group">
+                <%= label_tag 'sq[name]', "カード名" %><br>
+                <%= text_field_tag "sq[name]", @sq[:name], class: "form-control", placeholder: "例：タマ" %>
+              </div>
+              <div class="form-group">
+                <%= label_tag 'sq[card_color]', "色" %>
+                <%= text_field_tag "sq[card_color]", @sq[:card_color], class: "form-control", placeholder: "例：白 青" %>
+              </div>
+              <div class="form-group">
+                <%= label_tag 'sq[card_kind]', "カード種類" %>
+                <%= text_field_tag "sq[card_kind]", @sq[:card_kind], class: "form-control", placeholder: "例：ルリグ スペル" %>
+              </div>
+              <div class="form-group">
+                <%= label_tag 'sq[card_type]', "カードタイプ" %>
+                <%= text_field_tag "sq[card_type]", @sq[:card_type], class: "form-control", placeholder: "例：精武 電機" %>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <%= label_tag 'sq[grow_cost]', "グロウコスト" %>
+                <%= text_field_tag "sq[grow_cost]", @sq[:grow_cost], class: "form-control", placeholder: "例：白× 赤×" %>
+              </div>
+
+              <div class="form-group">
+                <%= label_tag 'sq[card_cost]', "コスト" %>
+                <%= text_field_tag "sq[card_cost]", @sq[:card_cost], class: "form-control", placeholder: "例：白× 赤×" %>
+              </div>
+
+              <div class="form-group">
+                <%= label_tag 'sq[condition]', "限定条件" %>
+                <%= text_field_tag "sq[condition]", @sq[:condition], class: "form-control", placeholder: "例：ピルルク" %>
+              </div>
+              <div class="form-group">
+                <%= label_tag 'sq[card_text]', "カードテキスト" %>
+                <%= text_field_tag "sq[card_text]", @sq[:card_text], class: "form-control", placeholder: "例：常時 マルチエナ" %>
+              </div>
+
+              <div class="form-group">
+                <%= label_tag 'sq[life_burst]', "ライフバースト" %>
+                <%= text_field_tag "sq[life_burst]", @sq[:life_burst], class: "form-control", placeholder: "例：ライフバースト エナ" %>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <%= label_tag 'sq[card_rare]', "レア" %>
+                <%= text_field_tag "sq[card_rare]", @sq[:card_rare], class: "form-control", placeholder: "例：PR LR" %>
+              </div>
+              <div class="form-group">
+                <%= label_tag 'sq[guard]', "ガード" %>
+                <%= text_field_tag "sq[guard]", @sq[:guard], class: "form-control", placeholder: "例：有" %>
+              </div>
+              <div class="form-group">
+                <%= label_tag 'sq[card_level_gteq]', "レベル(以上)" %>
+                <%= text_field_tag "sq[card_level_gteq]", @sq[:card_level_gteq], class: "form-control", placeholder: "例：2" %>
+              </div>
+              <div class="form-group">
+                <%= label_tag 'sq[card_level_lteq]', "レベル(以下)" %>
+                <%= text_field_tag "sq[card_level_lteq]", @sq[:card_level_lteq], class: "form-control", placeholder: "例：2" %>
+              </div>
+              <div class="form-group">
+                <%= label_tag 'sq[card_power_gteq]', "パワー(以上)" %>
+                <%= text_field_tag "sq[card_power_gteq]", @sq[:card_power_gteq], class: "form-control", placeholder: "例：10000" %>
+              </div>
+              <div class="form-group">
+                <%= label_tag 'sq[card_power_lteq]', "パワー(以下)" %>
+                <%= text_field_tag "sq[card_power_lteq]", @sq[:card_power_lteq], class: "form-control", placeholder: "例：10000" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-group">
+          <%= submit_tag "検索", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

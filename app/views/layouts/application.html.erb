@@ -9,22 +9,19 @@
 <body data-spy="scroll" data-target=".nav-search">
 	<header>
 		<%= render 'layouts/header' %>
+		<%= render 'layouts/search_modal' %>
 	</header>
 
-	<% unless @sq.nil? %>
-		<div class="col-sm-2">
-			<%= render 'cards/search_form' %>
-		</div>
-	<% end %>
+	<div class="row">
+		<% unless @cards.nil? %>
+			<div class="col-sm-3 col-sm-offset-1">
+				<%= render 'layouts/spy' %>
+			</div>
+		<% end %>
 
-	<% unless @cards.nil? %>
-		<div class="col-sm-3">
-			<%= render 'layouts/spy' %>
+		<div class="col-sm-7">
+			<%= yield %>
 		</div>
-	<% end %>
-
-	<div class="col-sm-7">
-		<%= yield %>
 	</div>
 
 	<%= debug(params) if Rails.env.development? %>
