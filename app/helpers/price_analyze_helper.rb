@@ -1,5 +1,6 @@
 module PriceAnalyzeHelper
 	require "open-uri"
+	require "nokogiri"
 
 	module HtmlAnalyze
 
