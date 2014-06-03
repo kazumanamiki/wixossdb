@@ -1,0 +1,35 @@
+#card-price {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+
+    padding: 10px;
+
+    background: #428bca;
+    color: #fff;
+
+    border-radius: 5px;
+
+    .item {
+        h3 {
+            font-size: 0.8em;
+        }
+
+        a {
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        span {
+            margin-left: 20px;
+            color: #fff;
+        }
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        cursor: pointer;
+    }
+}

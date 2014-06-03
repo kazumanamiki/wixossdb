@@ -1,0 +1,20 @@
+#page-top {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 100%;
+}
+#page-top a {
+    background: #428bca;
+    text-decoration: none;
+    color: #fff;
+    width: 100px;
+    padding: 10px 0;
+    text-align: center;
+    display: block;
+    border-radius: 5px;
+}
+#page-top a:hover {
+    text-decoration: none;
+    background: #999;
+}

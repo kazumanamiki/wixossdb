@@ -17,5 +17,17 @@
 //= require default/loader
 //= require default/bootswatch
 
+var ready = function () {
+	//$('body').scrollspy({ target: '.nav-search' });
 
-$('body').scrollspy({ target: '.navbar-search' });
+    $('a[href^=#]').click(function(){
+        var speed = 500;
+        var href= $(this).attr("href");
+        var target = $(href == "#" || href == "" ? 'html' : href);
+        var position = target.offset().top;
+        $("html, body").animate({scrollTop:position}, speed, "swing");
+        return false;
+    });
+}
+$(document).ready(ready)
+$(document).on('page:load', ready)

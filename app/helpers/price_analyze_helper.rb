@@ -68,7 +68,7 @@ module PriceAnalyzeHelper
 
 			# ハッシュ化
 			ret_hash_array = []
-			paths.zip(names, prices) { |arr| ret_hash_array.push({ path: arr[0], name: arr[1], price: arr[2] }) }
+			paths.zip(names, prices) { |arr| ret_hash_array.push({ url: arr[0], name: arr[1], price: arr[2] }) }
 
 			# データ加工
 			ret_hash_array.each do |ret_hash|
