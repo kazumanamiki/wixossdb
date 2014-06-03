@@ -66,10 +66,10 @@
 	<div class="clearfix">
 		<div class="links pull-right">
 			<% if index %>
+				<span><a href="#nav_<%= card.card_number %>" class="card-p" data-id="<%= card.id %>">Price</a></span>　|　
 				<span><%= link_to 'Show', card %></span>　|　
 			<% end %>
-			<span><%= link_to 'Edit', edit_card_path(card) %></span>　|　
-			<span><a href="#nav_<%= card.card_number %>" class="card-p" data-id="<%= card.id %>">Price</a></span>
+			<span><%= link_to 'Edit', edit_card_path(card) %></span>
 		</div>
 	</div>
 </div>

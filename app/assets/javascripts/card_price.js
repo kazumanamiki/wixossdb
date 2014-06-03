@@ -1,4 +1,4 @@
-$(function() {
+var ready = function() {
 	var box = $('#card-price');
 	box.hide();
 
@@ -17,4 +17,5 @@ $(function() {
 	$('#card-price .close-btn').click(function(){
 		box.fadeOut();
 	});
-});
+}
+$(document).ready(ready)

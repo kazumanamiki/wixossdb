@@ -1,4 +1,4 @@
-$(function() {
+var ready = function() {
 	var topBtn = $('#page-top');
 	topBtn.hide();
 	//スクロールが100に達したらボタン表示
@@ -16,4 +16,5 @@ $(function() {
 		}, 500);
 		return false;
 	});
-});
+}
+$(document).ready(ready)
