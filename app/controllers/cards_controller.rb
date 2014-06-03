@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :set_card, only: [:show, :edit, :update, :destroy]
+  before_action :set_card, only: [:show, :edit, :update, :destroy, :price]
 
   def index
     if params.key?(:sq)
@@ -14,6 +14,10 @@ class CardsController < ApplicationController
   def show
   end
 
+  def price
+    render json: PriceAnalyzeHelper::YahooAuctions.new.extract_datas(["WIXOSS", @card.name])
+  end
+
   # GET /cards/new
   def new
     @card = Card.new
@@ -21,11 +25,6 @@ class CardsController < ApplicationController
 
   # GET /cards/1/edit
   def edit
-  end
-
-  def search
-    @cards = Card.where()
-    render 'index'
   end
 
   # POST /cards
