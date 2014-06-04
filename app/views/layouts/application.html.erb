@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width">
 	<title>WIXOSSカードデータベース</title>
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
 </head>
-<body data-spy="scroll" data-target=".nav-search">
+<body style="padding-top:70px;">
 	<header>
 		<%= render 'layouts/header' %>
 		<%= render 'layouts/search_modal' %>

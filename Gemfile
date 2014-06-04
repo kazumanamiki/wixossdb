@@ -24,6 +24,10 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
+# スマホ対応
+gem 'jpmobile'
+
+# Priceデータ表示の為の解析
 gem 'nokogiri'
 
 group :doc do

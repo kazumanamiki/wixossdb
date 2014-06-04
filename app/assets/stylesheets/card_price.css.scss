@@ -28,8 +28,11 @@
 
     .close-btn {
         position: absolute;
-        top: 5px;
+        top: 0px;
         right: 10px;
         cursor: pointer;
+        display: block;
+
+        font-size: 25px;
     }
 }
