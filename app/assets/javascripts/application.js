@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.cookie
 //= require jquery_ujs
+//= require jquery.cookie
 //= require turbolinks
 //= require_tree .
 //= require default/loader

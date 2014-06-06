@@ -5818,9 +5818,11 @@ button.close {
 /* line 29, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/card_price.css.scss */
 #card-price .close-btn {
   position: absolute;
-  top: 5px;
+  top: 0px;
   right: 10px;
   cursor: pointer;
+  display: block;
+  font-size: 25px;
 }
 
 /* line 1, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
@@ -5895,6 +5897,111 @@ div.links {
 /* line 62, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/custom.css.scss */
 .panel .card_rare {
   padding: 3px 10px;
+}
+
+/* line 1, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table {
+  position: fixed !important;
+  position: absolute;
+  bottom: 0px;
+  left: -320px;
+  /* 最初は画面内に表示しない */
+  /*left: 0px;*/
+  width: 320px;
+  height: 500px;
+  background-color: #fff;
+  border-top: solid 1px #bbb;
+  border-right: solid 1px #bbb;
+  border-radius: 0 5px 0 0;
+  -webkit-border-radius: 0 5px 0 0;
+  -moz-border-radius: 0 5px 0 0;
+  padding: 5px;
+}
+/* line 21, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table .bt-close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 0px 10px;
+  color: #bbb;
+  font-size: 25px;
+  cursor: pointer;
+  display: block;
+}
+/* line 34, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table .bt-close:hover {
+  color: #555;
+}
+/* line 38, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table h2 {
+  padding: 5px;
+  background: #428bca;
+  font-size: 15px;
+  color: #fff;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+}
+/* line 49, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table h2 a {
+  color: #fff;
+  margin: 0 3px;
+}
+/* line 53, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table h2 a:hover {
+  color: #555;
+}
+/* line 59, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table .info h2 {
+  width: 260px;
+  margin-top: 2px;
+}
+/* line 65, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table div.panel {
+  position: relative;
+  border: solid 1px #428bca;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+/* line 73, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table div.panel h2 {
+  margin: 0;
+  border-radius: 2px 2px 0 0;
+  -webkit-border-radius: 2px 2px 0 0;
+  -moz-border-radius: 2px 2px 0 0;
+}
+/* line 82, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table div.decks-content {
+  max-height: 120px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+/* line 89, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table .tab.tab-content div {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+/* line 94, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table .tab.tab-content li a {
+  cursor: auto;
+}
+/* line 97, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table .tab.tab-content li a span {
+  margin-left: 5px;
+}
+/* line 100, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table .tab.tab-content li a .controler {
+  cursor: pointer;
+}
+/* line 103, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table .tab.tab-content li a .controler:hover {
+  color: #428bca;
+}
+/* line 109, /Users/kazuma/Works/webservice/wixossdb/app/assets/stylesheets/deck.css.scss */
+#deck-table #deck-cards-tab .badge {
+  margin-left: 8px;
 }
 /* Default
  * Bootswatch
