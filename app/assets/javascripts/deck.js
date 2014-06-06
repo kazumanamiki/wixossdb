@@ -214,10 +214,10 @@ var ready = function() {
 	});
 
 	// デッキの作成ボタンクリック
-	$(document).on('click', '#modal_deck_create input[type="submit"]', function() {
-		// 連続クリックできないようにボタンをdisabledにする
-		$(this).attr('disabled', 'disabled');
-	});
+	// $(document).on('click', '#modal_deck_create input[type="submit"]', function() {
+	// 	// 連続クリックできないようにボタンをdisabledにする
+	// 	$(this).attr('disabled', 'disabled');
+	// });
 
 	// デッキ名クリック（デッキの読み込み）
 	$(document).on('click', 'a.deck-make', function() {
