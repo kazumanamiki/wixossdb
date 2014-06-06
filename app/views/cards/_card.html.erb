@@ -64,11 +64,16 @@
 		</div>
 	</div>
 	<div class="clearfix">
+	<% if signed_in? && !request.smart_phone?%>
+		<div class="links pull-left">
+			<span><a href="javascript:void(0)" class="card-add-deck" card-id="<%= card.id %>" card-name="<%= card.name%>" card-kind="<%= card.card_kind %>">デッキに追加</a></span>
+		</div>
+	<% end %>
 		<div class="links pull-right">
-			<% if index %>
-				<span><a href="#nav_<%= card.card_number %>" class="card-p" data-id="<%= card.id %>">Price</a></span>　|　
-				<span><%= link_to 'Show', card %></span>　|　
-			<% end %>
+		<% if index %>
+			<span><a href="javascript:void(0)" class="card-p" data-id="<%= card.id %>">Price</a></span>　|　
+			<span><%= link_to 'Show', card %></span>　|　
+		<% end %>
 			<span><%= link_to 'Edit', edit_card_path(card) %></span>
 		</div>
 	</div>

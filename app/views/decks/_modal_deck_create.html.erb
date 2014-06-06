@@ -1,0 +1,25 @@
+<div class="modal fade" id="modal_deck_create" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">デッキの新規作成</h4>
+      </div>
+      <div id="deck-error-message-area">
+        <!-- エラーメッセージ用 -->
+      </div>
+      <%= form_tag(decks_path, { method: :create, class: "form-horizontal", remote: true }) do %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= label :deck, :name, "デッキ名", class: "control-label" %>
+            <%= text_field_tag "deck[name]", "", class: "form-control" %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default modal-cancel" data-dismiss="modal">キャンセル</button>
+          <%= submit_tag "作成", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

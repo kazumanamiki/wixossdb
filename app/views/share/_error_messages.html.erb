@@ -1,0 +1,15 @@
+<%
+# 必要パラメータ
+# :object 登録を行うモデルのインスタンス
+%>
+<% if object.errors.any? %>
+	<div id="error_explanation">
+		<div class="alert alert-danger alert-dismissable">
+			<ul>
+				<% object.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+<% end %>

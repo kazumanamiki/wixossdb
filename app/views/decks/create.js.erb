@@ -1,0 +1,26 @@
+<% if @save_flag %>
+	// モーダルの非表示
+	$('#modal_deck_create').modal('hide');
+	$('#modal_deck_create form')[0].reset();
+
+	// 要素の追加
+	var elm_li = $('<li />', { css: { left: '50px', opacity: 0.5 } });
+	var elm_a = $('<a />').addClass('deck-make').attr('href', 'javascript:void(0)').attr('deck-id', <%= @deck.id %>).html("<%= @deck.name %>");
+	elm_a.appendTo(elm_li);
+	elm_li.insertBefore($('#deck-table .decks-content li:last'));
+	elm_li.animate({ left: '0', opacity: 1 }, 500);
+
+	// デッキカードの高さを再調整(モーダル非表示後に動作)
+	setTimeout(function(){
+		fixCardsHeight();
+	}, 700);
+
+<% else %>
+
+	$('#deck-error-message-area').html("<%= escape_javascript(render 'share/error_messages', object: @deck) %>");
+	$('#deck_name').parent().addClass("has-error");
+
+<% end %>
+
+// 作成ボタンの有効化
+$('#modal_deck_create input[type="submit"]').removeAttr('disabled');

@@ -4,8 +4,12 @@ Wixossdb::Application.routes.draw do
       get 'price'
     end
   end
-  root 'cards#index'
 
+  resources :decks, only: [:index, :create, :show, :update, :destroy]
+  root 'cards#index'
+  get  '/auth/:provider/callback', to: 'sessions#callback'
+  post '/auth/:provider/callback', to: 'sessions#callback'
+  get  '/logout' => 'sessions#destroy', as: :logout
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

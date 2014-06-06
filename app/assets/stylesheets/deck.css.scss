@@ -1,0 +1,112 @@
+#deck-table {
+	position: fixed !important;
+	position: absolute;
+	bottom: 0px;
+	left: -320px; /* 最初は画面内に表示しない */
+	/*left: 0px;*/
+
+	width: 320px;
+	height: 500px;
+
+	background-color: #fff;
+
+	border-top: solid 1px #bbb;
+	border-right: solid 1px #bbb;
+	border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+
+	padding: 5px;
+
+	.bt-close {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+
+		padding: 0px 10px;
+
+		color: #bbb;
+		font-size: 25px;
+
+		cursor: pointer;
+		display: block;
+	}
+	.bt-close:hover {
+		color: #555;
+	}
+
+	h2 {
+		padding: 5px;
+
+		background: #428bca;
+		font-size: 15px;
+		color: #fff;
+
+		border-radius: 2px;
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+
+		a {
+			color: #fff;
+			margin: 0 3px;
+		}
+		a:hover {
+			color: #555;
+		}
+	}
+
+	.info {
+		h2 {
+			width: 260px;
+			margin-top: 2px;
+		}
+	}
+
+	div.panel {
+		position: relative;
+
+		border: solid 1px #428bca;
+		border-radius: 4px;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+
+		h2 {
+			margin: 0;
+
+			border-radius: 2px 2px 0 0;
+			-webkit-border-radius: 2px 2px 0 0;
+			-moz-border-radius: 2px 2px 0 0;
+		}
+	}
+
+	div.decks-content {
+		max-height: 120px;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+
+	.tab.tab-content {
+		div {
+			height: 100%;
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+		li a {
+			cursor: auto;
+
+			span{
+				margin-left: 5px;
+			}
+			.controler {
+				cursor: pointer;
+			}
+			.controler:hover {
+				color: #428bca;
+			}
+		}
+	}
+
+	#deck-cards-tab .badge {
+		margin-left: 8px;
+	}
+}

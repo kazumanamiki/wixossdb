@@ -1,0 +1,15 @@
+defaults: &defaults
+  twitter:
+    api_key: V4yMpIADzfD79CHUylK4hRaEE
+    api_secret: gGKjS8gGtrxlngT3GjJI9BOTI3D5VubzPECJazo44ok5MXLdR6
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+
+

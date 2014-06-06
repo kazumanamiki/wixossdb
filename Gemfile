@@ -4,7 +4,23 @@ ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
+
+# 検索用gem
 gem 'ransack'
+
+# スマホ対応
+gem 'jpmobile'
+
+# Priceデータ表示の為のHP解析
+gem 'nokogiri'
+
+# twitter認証
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'settingslogic'		#=> config/initializers/0_settings.rb
+
+# jQueryでクッキー使用
+gem 'jquery-cookie-rails'
 
 group :development, :test do
 	gem 'sqlite3'
@@ -23,12 +39,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
-
-# スマホ対応
-gem 'jpmobile'
-
-# Priceデータ表示の為の解析
-gem 'nokogiri'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

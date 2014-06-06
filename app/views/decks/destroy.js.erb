@@ -1,0 +1,9 @@
+elm_destroy = $('.decks-content ul a[deck-id = "<%= @deck.id %>"]').parent();
+elm_destroy.animate({ left: '50px', opacity: 0 }, 500, 'swing', function(){
+	elm_destroy.remove();
+	fixCardsHeight();
+});
+clearDeck();
+
+// クッキー保持（選択デッキ）
+$.removeCookie("deck-select");
