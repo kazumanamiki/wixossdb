@@ -4,14 +4,13 @@
 	$('#modal_deck_edit form')[0].reset();
 
 	// 要素の変更
-	$('#deck-table .decks-content li a[deck-id="<%= @deck.id %>"]').text("<%= @deck.name %>");
-	$('#deck-table .cards > h2 .text').text("<%= @deck.name %>");
-	$('#deck-table .cards > h2 .comment').text("<%= @deck.comment %>");
-
+	$('#deck-table .decks-content li a[deck-id="<%= @deck.id %>"]').text('<%= @deck.name %>');
+	$('#deck-table .cards > h2 .text').text('<%= @deck.name %>');
+	$('#deck-table .cards > h2 .comment').html('<%= escape_javascript(@deck.comment) %>');
 <% else %>
 	$('.deck-error-message-area').html("<%= escape_javascript(render 'share/error_messages', object: @deck) %>");
 	$('#deck_name').parent().addClass("has-error");
 <% end %>
 
 // 作成ボタンの有効化
-$('#modal_deck_edit input[type="submit"]').removeAttr('disabled');
+//$('#modal_deck_edit input[type="submit"]').removeAttr('disabled');
