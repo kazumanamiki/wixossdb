@@ -2,7 +2,7 @@
 	<% if index == 0 || index % 5 == 0 %>
 		<%= render 'share/afe' %>
 	<% end %>
-	<%= render 'cards/card', card: card, index: false%>
+	<%= render 'cards/card', card: card, index: true%>
 <% end %>
 
 <% if @cards.empty? %>
