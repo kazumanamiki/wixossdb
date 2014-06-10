@@ -1,3 +1,6 @@
+/*
+ * デッキの構築スタイル
+ */
 #deck-table {
 	position: fixed !important;
 	position: absolute;
@@ -107,6 +110,42 @@
 	}
 
 	#deck-cards-tab .badge {
-		margin-left: 8px;
+		margin-left: 4px;
+
+		&.lifeburst:before {
+			content: "LB:";
+		}
+		&.guard:before {
+			content: "G:";
+		}
+
+	}
+}
+
+
+/*
+ * デッキの表示スタイル
+ */
+#show-deck {
+	margin-left: 10px;
+
+	h1 small {
+		margin-left: 10px;
+	}
+
+	img {
+		max-height: 100px;
+	}
+
+	table {
+		margin-left: 10px;
+	}
+
+	th, td {
+		padding: 5px;
+	}
+
+	div p {
+		margin-left: 10px;
 	}
 }

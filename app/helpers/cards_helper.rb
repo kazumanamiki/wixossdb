@@ -4,6 +4,21 @@ module CardsHelper
 		return data
 	end
 
+	def format_illustrator(illustrator)
+		return "" if illustrator.blank?
+		return "Illust　" + illustrator
+	end
+
+	def format_lb_for_deck(life_burst)
+		return "0" if life_burst.blank?
+		return "1"
+	end
+
+	def format_g_for_deck(guard)
+		return "0" if guard.blank?
+		return "1"
+	end
+
 	def color_string(color)
 		case color
 		when "赤"

@@ -1,0 +1,56 @@
+.card {
+	font-size: 0.8em;
+	max-width: 700px;
+
+	/* イラスト */
+	.illust {
+		img {
+			max-width: 100%;
+			border:  1px #ccc solid;
+		}
+	}
+
+	/* カード情報 */
+	h2 {
+		font-size: 1.5em;
+		margin: 0px;
+	}
+
+	.card_number {
+		padding: 3px 10px;
+	}
+	.card_rare {
+		padding: 3px 10px;
+	}
+
+	.card-text {
+		padding: 3px;
+
+		.line {
+			margin-bottom: 3px;
+		}
+	}
+
+	.view-text {
+		text-align: right;
+	}
+
+	div.links {
+		padding: 3px 10px;
+	}
+
+	/* テーブルのパディング調整 */
+	table {
+		margin-bottom: 5px;
+
+		border-top:  1px #ccc solid;
+		border-left: 1px #ccc solid;
+
+		th, td {
+			padding: 4px;
+
+			border-right: 1px #ccc solid;
+			border-bottom: 1px #ccc solid;
+		}
+	}
+}

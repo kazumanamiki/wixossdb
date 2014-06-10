@@ -79,6 +79,14 @@
     <%= f.label :view_text, "イラストテキスト([]で囲むとアイコンに置換される。複数行の改行には「||」を入れる)" %><br>
     <%= f.text_area :view_text, class: "form-control", placeholder: "例：こんにちは！||～タマ～" %>
   </div>
+  <div class="form-group">
+    <%= f.label :illustrator, "イラストレーター" %><br>
+    <%= f.text_field :illustrator, class: "form-control", placeholder: "" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :illust_url, "イラストURL" %><br>
+    <%= f.text_field :illust_url, class: "form-control", placeholder: "http://~~~~~" %>
+  </div>
   <div class="actions">
     <%= f.submit class: "btn btn-default" %>
   </div>

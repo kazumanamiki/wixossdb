@@ -1,0 +1,5 @@
+<% if card.illust_url.blank? %>
+	<img src="/assets/noimage.jpg"></img>
+<% else %>
+	<img src="<%= card.illust_url %>"></img>
+<% end %>

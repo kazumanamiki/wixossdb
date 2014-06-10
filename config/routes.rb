@@ -6,6 +6,7 @@ Wixossdb::Application.routes.draw do
   end
 
   resources :decks, only: [:index, :create, :show, :update, :destroy]
+
   root 'cards#index'
   get  '/auth/:provider/callback', to: 'sessions#callback'
   post '/auth/:provider/callback', to: 'sessions#callback'

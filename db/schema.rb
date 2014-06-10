@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605075628) do
+ActiveRecord::Schema.define(version: 20140608110250) do
 
   create_table "cards", force: true do |t|
     t.string   "card_number"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20140605075628) do
     t.text     "search_all_text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "illust_url"
+    t.string   "illustrator"
   end
 
   create_table "decks", force: true do |t|
@@ -43,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140605075628) do
     t.text     "card_data"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "comment"
   end
 
   create_table "users", force: true do |t|

@@ -1,5 +1,13 @@
 ////////////////////////////////////////////////////////////
 //
+// デッキ用Setter/Getter
+//
+////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////
+//
 // デッキ用関数定義
 //
 ////////////////////////////////////////////////////////////
@@ -17,8 +25,27 @@ fixCardsHeight = function() {
 	fixHeight('div.tab.tab-content');
 }
 
+// デッキ、ライフバースト、ガードの総数を計算して表示
+calcDeckCardCount = function(deck_name) {
+	var deck_tab_badge_count = $('#deck-cards-tab a[href = "#'+deck_name+'"] .badge.count');
+	var deck_tab_badge_lb = $('#deck-cards-tab a[href = "#'+deck_name+'"] .badge.lifeburst');
+	var deck_tab_badge_g = $('#deck-cards-tab a[href = "#'+deck_name+'"] .badge.guard');
+	var deck_card_count = 0
+	var deck_lb_count = 0
+	var deck_g_count = 0
+	$('#'+deck_name+' ul').find('li a').each(function() {
+		var this_card_count = parseInt($(this).find('.badge').text());
+		deck_card_count = deck_card_count + this_card_count
+		deck_lb_count = deck_lb_count + (parseInt($(this).attr('card-lb')) * this_card_count);
+		deck_g_count = deck_g_count + (parseInt($(this).attr('card-g')) * this_card_count);
+	});
+	deck_tab_badge_count.text(deck_card_count);
+	deck_tab_badge_lb.text(deck_lb_count);
+	deck_tab_badge_g.text(deck_g_count);
+}
+
 // タブコンテンツにカードを追加
-addDeckCard = function(deck_name, card_id, card_name) {
+addDeckCard = function(deck_name, card_id, card_name, card_lb, card_g) {
 	if (!isSelectDeck()) { return; }
 
 	// IDのカードがあるか検索
@@ -30,13 +57,11 @@ addDeckCard = function(deck_name, card_id, card_name) {
 		elm_cards.find('.badge').text(card_count + 1);
 	} else {
 		// 存在しなければ追加
-		deck_list.append('<li><a href="javascript:void(0)" card-id="'+card_id+'"><span class="name">'+card_name+'</span><span class="card-controler pull-right"><span class="controler deck-card-plus glyphicon glyphicon-plus"></span><span class="controler deck-card-minus glyphicon glyphicon-minus"></span><span class="badge">'+1+'</span></span></a></li>');
+		deck_list.append('<li><a href="javascript:void(0)" card-id="'+card_id+'" card-lb="'+card_lb+'" card-g="'+card_g+'"><span class="name">'+card_name+'</span><span class="card-controler pull-right"><span class="controler deck-card-plus glyphicon glyphicon-plus"></span><span class="controler deck-card-minus glyphicon glyphicon-minus"></span><span class="badge">'+1+'</span></span></a></li>');
 	}
 
-	// デッキの総数を追加
-	var deck_tab_badge = $('#deck-cards-tab a[href = "#'+deck_name+'"] .badge');
-	var deck_count = parseInt(deck_tab_badge.text());
-	deck_tab_badge.text(deck_count + 1);
+	// デッキ、ライフバースト、ガードの総数を計算して表示
+	calcDeckCardCount(deck_name);
 
 	// コンテンツの高さの再設定
 	fixCardsHeight();
@@ -60,10 +85,8 @@ subDeckCard = function(deck_name, card_id) {
 		}
 	}
 
-	// デッキの総数を引く
-	var deck_tab_badge = $('#deck-cards-tab a[href = "#'+deck_name+'"] .badge');
-	var deck_count = parseInt(deck_tab_badge.text());
-	deck_tab_badge.text(deck_count - 1);
+	// デッキ、ライフバースト、ガードの総数を計算して表示
+	calcDeckCardCount(deck_name);
 
 	// コンテンツの高さの再設定
 	fixCardsHeight();
@@ -73,7 +96,9 @@ subDeckCard = function(deck_name, card_id) {
 setDeckCards = function(deck_name, data) {
 	$.each(data[deck_name], function() {
 		for (var i = 0; i < parseInt(this['count']); i++) {
-			addDeckCard(deck_name, this['id'], this['name']);
+			var lb = (this['lb'] == "1") ? "1" : "0"
+			var g = (this['g'] == "1") ? "1" : "0"
+			addDeckCard(deck_name, this['id'], this['name'], lb, g);
 		}
 	});
 }
@@ -83,10 +108,11 @@ setDeck = function(data) {
 	// デッキ情報の設定
 	$('div.panel.cards > h2').attr('deck-id', data['id']);
 	$('div.panel.cards > h2 .text').text(data['name']);
+	$('div.panel.cards > h2 .comment').text(data['comment']);
 
 	// デッキ操作アイコンの設定
 	$('a.deck-delete').attr('href', '/decks/'+data['id']).attr('data-method', 'delete').attr('data-remote', 'true').attr('data-confirm', '削除してよろしいですか？');
-	$('a.deck-show').attr('href', '/decks/'+data['id']).attr('data-confirm', 'ページを移動します。保存していないデータは失われます。よろしいですか？');
+	$('a.deck-show').attr('href', '/decks/'+data['id']).attr('target','_blank');
 
 	// ルリグデッキのカードを設定
 	setDeckCards('deck_lrig', data);
@@ -109,7 +135,7 @@ clearDeck = function() {
 
 	// デッキ操作アイコンのクリア
 	$('a.deck-delete').attr('href', 'javascript:void(0)').removeAttr('data-method').removeAttr('data-remote').removeAttr('data-confirm');
-	$('a.deck-show').attr('href', 'javascript:void(0)').removeAttr('data-confirm');
+	$('a.deck-show').attr('href', 'javascript:void(0)').removeAttr('target');
 
 	clearDeckCard('deck_lrig');
 	clearDeckCard('deck_base');
@@ -130,33 +156,37 @@ isSelectDeck = function() {
 	return getSelectedDeckId() != "";
 }
 
+// #deck_lrig ul 配下のliの要素を元にJSON用のカードデータを生成する
+buildCardData = function(element) {
+	var card = {};
+	card['id']    = element.find('a').attr('card-id');
+	card['lb']    = element.find('a').attr('card-lb');
+	card['g']     = element.find('a').attr('card-g');
+	card['name']  = element.find('.name').text();
+	card['count'] = element.find('.badge').text();
+	return card;
+}
+
+// JSONデータ用にデッキのデータを構築する
 buildDeckData = function() {
 	// JSONデータの作成
 	data = {};
 	data["lrig_cards"] = [];
 	$('#deck_lrig ul').children().each(function() {
-		var card = {};
-		card['id'] = $(this).find('a').attr('card-id');
-		card['name'] = $(this).find('.name').text();
-		card['count'] = $(this).find('.badge').text();
-		data["lrig_cards"].push(card);
+		data["lrig_cards"].push(buildCardData($(this)));
 	});
 	data["base_cards"] = [];
 	$('#deck_base ul').children().each(function() {
-		var card = {};
-		card['id'] = $(this).find('a').attr('card-id');
-		card['name'] = $(this).find('.name').text();
-		card['count'] = $(this).find('.badge').text();
-		data["base_cards"].push(card);
+		data["base_cards"].push(buildCardData($(this)));
 	});
 	return data;
 }
 
+// json形式でデッキの保存を要求
 saveDeck = function() {
 	if (!isSelectDeck()) { return; } // デッキが選択されていなければ処理中断
 
 	var jsonData = { deck: {
-		name: getSelectedDeckName(),
 		card_data: buildDeckData()
 	} };
 
@@ -164,18 +194,41 @@ saveDeck = function() {
 		type: 'patch',
 		url: '/decks/'+getSelectedDeckId(),
 		data: JSON.stringify(jsonData),
-		contentType: 'application/json'
+		contentType: 'application/json',
+		dataType: 'json'
 	});
 }
 
+// デッキ編集用のモーダル表示
+showDeckModal = function(id) {
+	// エラーをクリア
+	$('.deck-error-message-area').html("");
+	$('#deck_name').parent().removeClass("has-error");
 
+	// 編集用にアドレス変更＆タイトル変更＆内容変更
+	if (id == null) {
+
+		$('#modal_deck_edit form').attr('action', '/decks').attr('method','post');
+		$('#modal_deck_edit h4').text("デッキの新規作成");
+		$('#deck_name').val('');
+		$('#deck_comment').val('');
+	} else {
+		$('#modal_deck_edit form').attr('action', '/decks/'+id).attr('method','patch');
+		$('#modal_deck_edit h4').text("デッキ情報の編集");
+		$('#deck_name').val($('div.panel.cards > h2 .text').text());
+		$('#deck_comment').val($('div.panel.cards > h2 .comment').text());
+	}
+
+	// モーダル表示
+	$('#modal_deck_edit').modal('show');
+}
 
 ////////////////////////////////////////////////////////////
 //
-// ロート時＆イベント定義
+// イベント定義
 //
 ////////////////////////////////////////////////////////////
-var ready = function() {
+$(function() {
 
 	//////////////////////////////////
 	// イベント定義
@@ -210,7 +263,15 @@ var ready = function() {
 
 	// デッキの新規作成クリック
 	$(document).on('click', 'a.deck-new', function() {
-		$('#modal_deck_create').modal('show');
+		showDeckModal(null);
+	});
+
+	// デッキ編集クリック（モーダルポップアップ）
+	$(document).on('click', 'a.deck-edit', function() {
+		var edit_deck_id = $('div.panel.cards > h2').attr('deck-id');
+		if (edit_deck_id != "") {
+			showDeckModal(edit_deck_id);
+		}
 	});
 
 	// デッキの作成ボタンクリック
@@ -226,6 +287,7 @@ var ready = function() {
 		// 前の情報をクリア
 		clearDeck();
 
+		// JSONデータを取得してデッキを設定
 		$.getJSON('/decks/'+deck_id, function(data) {
 			if (data['status'] == 200) {
 				setDeck(data);
@@ -246,15 +308,17 @@ var ready = function() {
 		} // デッキが選択されていなければ処理中断
 
 		var id = $(this).attr('card-id');
+		var lb = $(this).attr('card-lb');
+		var guard = $(this).attr('card-g');
 		var name = $(this).attr('card-name');
 		var kind = $(this).attr('card-kind');
 		switch (kind) {
 			case "ルリグ":
 			case "アーツ":
-				addDeckCard('deck_lrig', id, name);
+				addDeckCard('deck_lrig', id, name, lb, guard);
 				break;
 			default:
-				addDeckCard('deck_base', id, name);
+				addDeckCard('deck_base', id, name, lb, guard);
 				break;
 		}
 
@@ -265,8 +329,10 @@ var ready = function() {
 	// デッキのカードプラスクリック
 	$(document).on('click', 'span.deck-card-plus', function() {
 		var id = $(this).closest('a').attr('card-id');
+		var lb = $(this).closest('a').attr('card-lb');
+		var guard = $(this).closest('a').attr('card-g');
 		var deck = $(this).closest('.tab-pane').attr('id');
-		addDeckCard(deck, id, "");
+		addDeckCard(deck, id, "", lb, guard);
 
 		// 自動セーブ
 		saveDeck();
@@ -281,8 +347,13 @@ var ready = function() {
 		// 自動セーブ
 		saveDeck();
 	});
+});
 
 
+//////////////////////////////////
+// ロード時メソッド
+//////////////////////////////////
+var ready = function() {
 
 	//////////////////////////////////
 	// ロード時のタブ復元

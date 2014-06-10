@@ -8,7 +8,7 @@
 		</li>
 		<% unless request.smart_phone? %>
 			<% @cards.each do |card| %>
-				<li><a href="#nav_<%= card.card_number %>"><%= card.name %></a></li>
+				<li><a class="inner-link" href="#nav_<%= card.card_number %>"><%= card.name %></a></li>
 			<% end %>
 		<% end %>
 	</ul>

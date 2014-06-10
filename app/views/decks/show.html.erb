@@ -1,0 +1,35 @@
+<%
+	# 枚数を知る為の情報を作成
+	card_data_hash = {}
+	rlig_deck_cards = @deck.lrig_cards
+	base_deck_cards = @deck.base_cards
+	if rlig_deck_cards
+		rlig_deck_cards.each do |card_hash|
+			card_data_hash[card_hash["id"]] = card_hash
+		end
+	end
+	if base_deck_cards
+		base_deck_cards.each do |card_hash|
+			card_data_hash[card_hash["id"]] = card_hash
+		end
+	end
+%>
+<div id="show-deck">
+	<h1><%= @deck.name %><small><small>作成者 <%= @deck.user.name %></small></small></h1>
+	<div class="panel panel-default">
+		<div class="panel-heading"><h2>コメント</h2></div>
+		<div class="panel-body"><p><%= render 'cards/card_text', text: @deck.comment %></p></div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading"><h2>ルリグデッキ</h2></div>
+		<div class="panel-body">
+			<%= render 'decks/show_deck_table', cards: @rlig_cards, card_data_hash: card_data_hash %>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading"><h2>メインデッキ</h2></div>
+		<div class="panel-body">
+			<%= render 'decks/show_deck_table', cards: @base_cards, card_data_hash: card_data_hash %>
+		</div>
+	</div>
+</div>

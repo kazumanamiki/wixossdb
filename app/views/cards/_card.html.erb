@@ -1,4 +1,4 @@
-<div id="nav_<%= card.card_number %>" class="panel panel-default">
+<div id="nav_<%= card.card_number %>" class="card panel panel-default">
 	<dic class="clearfix">
 		<span class="card_number pull-left"><%= card.card_number %></span>
 		<span class="card_rare pull-right"><%= card.card_rare %></span>
@@ -7,66 +7,82 @@
 		<div class="panel-heading" style="background-color: <%= color_string(card.card_color) %>;">
 			<h2><%= card.name %><small>＜<%= card.name_yomi %>＞</small></h2>
 		</div>
-		<div class="panel-body">
-			<table class="table table-bordered">
-				<tr>
-					<th>カード種類</th><td><%= format_table_data(card.card_kind) %></td>
-					<th>色</th>
-					<td>
-						<%= image_tag color_image_file(card.card_color), alt: card.card_color %>
-						<%= format_table_data(card.card_color) %>
-					</td>
-					<th>リミット</th><td><%= format_table_data(card.card_limit) %></td>
-				</tr>
-				<tr>
-					<th>カードタイプ</th><td><%= format_table_data(card.card_type) %></td>
-					<th>レベル</th><td><%= format_table_data(card.card_level) %></td>
-					<th>ガード</th><td><%= format_table_data(card.guard) %></td>
-				</tr>
-				<tr>
-					<th>グロウコスト</th><td><%= format_table_data(card.grow_cost) %></td>
-					<th>コスト</th><td><%= format_table_data(card.card_cost) %></td>
-				</tr>
-				<tr>
-					<th>パワー</th><td><%= format_table_data(card.card_power) %></td>
-					<th>限定条件</th><td><%= format_table_data(card.condition) %></td>
-				</tr>
-			</table>
-		<% unless card.card_text.blank? %>
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<strong>カードテキスト</strong>
+		<div class="panel-body clearfix">
+			<div>
+				<div class="col-sm-2 hidden-xs" style="padding: 0 3px;">
+					<div class="illust">
+						<%= render 'cards/card_image', card: card %>
+					</div>
 				</div>
-				<div class="card-text panel-body">
-					<%= render 'cards/card_text', text: card.card_text %>
+				<div class="col-sm-10" style="padding: 0 3px;">
+					<div>
+						<table>
+							<tr>
+								<th>種類</th><td><%= format_table_data(card.card_kind) %></td>
+								<th>色</th>
+								<td>
+									<%= image_tag color_image_file(card.card_color), alt: card.card_color %>
+									<%= format_table_data(card.card_color) %>
+								</td>
+								<th>タイプ</th><td><%= format_table_data(card.card_type) %></td>
+								<th>限定</th><td><%= format_table_data(card.condition) %></td>
+							</tr>
+							<tr>
+								<th>レベル</th><td><%= format_table_data(card.card_level) %></td>
+								<th>コスト</th><td><%= format_table_data(card.card_cost) %></td>
+								<th>グロウ</th><td><%= format_table_data(card.grow_cost) %></td>
+								<th>リミット</th><td><%= format_table_data(card.card_limit) %></td>
+							</tr>
+							<tr>
+								<th>パワー</th><td><%= format_table_data(card.card_power) %></td>
+								<th>ガード</th><td><%= format_table_data(card.guard) %></td>
+							</tr>
+						</table>
+					</div>
+					<div>
+					<% unless card.card_text.blank? %>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<strong>カードテキスト</strong>
+							</div>
+							<div class="card-text panel-body">
+								<%= render 'cards/card_text', text: card.card_text %>
+							</div>
+						</div>
+					<% end %>
+					<% unless card.life_burst.blank? %>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<strong>ライフバースト</strong>
+							</div>
+							<div class="card-text panel-body">
+								<%= render 'cards/card_text', text: card.life_burst %>
+							</div>
+						</div>
+					<% end %>
+					<% unless card.view_text.blank? && card.illustrator.blank? %>
+						<div class="clearfix">
+							<span class="card-text view-text pull-left">
+								<small>
+									<%= format_illustrator(card.illustrator) %>
+								</small>
+							</span>
+							<span class="card-text view-text pull-right">
+								<small>
+									<%= render 'cards/card_text', text: card.view_text %>
+								</small>
+							</span>
+						</div>
+					<% end %>
+					</div>
 				</div>
 			</div>
-		<% end %>
-		<% unless card.life_burst.blank? %>
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<strong>ライフバースト</strong>
-				</div>
-				<div class="card-text panel-body">
-					<%= render 'cards/card_text', text: card.life_burst %>
-				</div>
-			</div>
-		<% end %>
-		<% unless card.view_text.blank? %>
-			<div class="clearfix">
-				<span class="card-text view-text pull-right">
-					<small>
-						<%= render 'cards/card_text', text: card.view_text %>
-					</small>
-				</span>
-			</div>
-		<% end %>
 		</div>
 	</div>
 	<div class="clearfix">
 	<% if signed_in? && !request.smart_phone?%>
 		<div class="links pull-left">
-			<span><a href="javascript:void(0)" class="card-add-deck" card-id="<%= card.id %>" card-name="<%= card.name%>" card-kind="<%= card.card_kind %>">デッキに追加</a></span>
+			<span><a href="javascript:void(0)" class="card-add-deck" card-id="<%= card.id %>" card-name="<%= card.name%>" card-kind="<%= card.card_kind %>" card-lb="<%= format_lb_for_deck(card.life_burst) %>" card-g="<%= format_g_for_deck(card.guard) %>">デッキに追加</a></span>
 		</div>
 	<% end %>
 		<div class="links pull-right">

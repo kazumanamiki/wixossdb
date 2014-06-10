@@ -75,7 +75,7 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:card_number, :name, :name_yomi, :card_rare, :card_kind, :card_type, :card_color, :card_level, :grow_cost, :card_cost, :card_limit, :card_power, :condition, :guard, :card_text, :life_burst, :view_text)
+      params.require(:card).permit(:card_number, :name, :name_yomi, :card_rare, :card_kind, :card_type, :card_color, :card_level, :grow_cost, :card_cost, :card_limit, :card_power, :condition, :guard, :card_text, :life_burst, :view_text, :illust_url, :illustrator)
     end
 
     def original_search_params

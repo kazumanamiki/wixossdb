@@ -1,7 +1,7 @@
 <% if @save_flag %>
 	// モーダルの非表示
-	$('#modal_deck_create').modal('hide');
-	$('#modal_deck_create form')[0].reset();
+	$('#modal_deck_edit').modal('hide');
+	$('#modal_deck_edit form')[0].reset();
 
 	// 要素の追加
 	var elm_li = $('<li />', { css: { left: '50px', opacity: 0.5 } });
@@ -17,10 +17,10 @@
 
 <% else %>
 
-	$('#deck-error-message-area').html("<%= escape_javascript(render 'share/error_messages', object: @deck) %>");
+	$('.deck-error-message-area').html("<%= escape_javascript(render 'share/error_messages', object: @deck) %>");
 	$('#deck_name').parent().addClass("has-error");
 
 <% end %>
 
 // 作成ボタンの有効化
-$('#modal_deck_create input[type="submit"]').removeAttr('disabled');
+$('#modal_deck_edit input[type="submit"]').removeAttr('disabled');

@@ -1,0 +1,27 @@
+<table>
+	<tbody>
+		<% cards.each do |card| %>
+		<tr>
+			<th><%= render 'cards/card_image', card: card %></th>
+			<td>
+				<div>
+					<a href="<%= card_path(card) %>" target="_blank"><%= card.name %></a>　×　<%= card_data_hash[card.id.to_s]["count"] %>枚
+				</div>
+				<div>
+					種別：<%= card.card_kind %>
+				</div>
+			<% unless card.life_burst.blank? %>
+				<div>
+					ライフバースト：<%= image_tag "i_burst.png", alt: "ライフバースト" %>
+				</div>
+			<% end %>
+			<% unless card.guard.blank? %>
+				<div>
+					ガード：有
+				</div>
+			<% end %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

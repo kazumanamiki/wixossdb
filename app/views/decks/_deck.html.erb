@@ -21,9 +21,13 @@
 	<div class="panel cards">
 		<h2 class="clearfix" deck-id="">
 			<span class="text"></span>
+			<span class="comment" style="display:none;"></span>
 			<span class="pull-right">
-				<a class="deck-show" href="javascript:void(0)" style="display:none;">
+				<a class="deck-show" href="javascript:void(0)">
 					<span class="glyphicon glyphicon-search"></span>
+				</a>
+				<a class="deck-edit" href="javascript:void(0)">
+					<span class="glyphicon glyphicon-pencil"></span>
 				</a>
 				<a class="deck-delete" href="javascript:void(0)">
 					<span class="glyphicon glyphicon-trash"></span>
@@ -33,10 +37,18 @@
 		<div class="tab tab-heading">
 			<ul class="nav nav-tabs" id="deck-cards-tab">
 				<li class="active">
-					<a href="#deck_lrig" data-toggle="tab">ルリグデッキ<span class="badge"></span></a>
+					<a href="#deck_lrig" data-toggle="tab" style="padding:10px 8px;">
+						ルリグ
+						<span class="badge count"></span>
+					</a>
 				</li>
 				<li>
-					<a href="#deck_base" data-toggle="tab">メインデッキ<span class="badge"></span></a>
+					<a href="#deck_base" data-toggle="tab" style="padding:10px 8px;">
+						メイン
+						<span class="badge count"></span>
+						<span class="badge lifeburst"></span>
+						<span class="badge guard"></span>
+					</a>
 				</li>
 			</ul>
 		</div>
@@ -59,4 +71,4 @@
 <% end %>
 </div>
 
-<%= render 'decks/modal_deck_create' %>
+<%= render 'decks/modal_deck_edit' %>

@@ -7,7 +7,7 @@
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
 </head>
-<body style="padding-top:70px;">
+<body style="padding-top: 70px;">
 	<header>
 		<%= render 'layouts/header' %>
 		<%= render 'layouts/search_modal' %>
@@ -15,12 +15,12 @@
 
 	<div class="row">
 		<% unless @cards.nil? %>
-			<div class="col-sm-3 col-sm-offset-1">
+			<div class="col-sm-3">
 				<%= render 'layouts/spy' %>
 			</div>
 		<% end %>
 
-		<div class="col-sm-7">
+		<div class="col-sm-offset-1 col-sm-7">
 			<%= yield %>
 		</div>
 	</div>
