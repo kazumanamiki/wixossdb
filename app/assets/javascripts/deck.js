@@ -358,7 +358,6 @@ var ready = function() {
 	//////////////////////////////////
 	// ロード時のタブ復元
 	//////////////////////////////////
-
 	// タブを表示していたなら最初から表示
 	if ($.cookie("deck-open") == "1") {
 		$('#deck-table').css('left', 0);
@@ -369,6 +368,20 @@ var ready = function() {
 	if ($.cookie("deck-select") != null) {
 		$('a.deck-make[deck-id="'+$.cookie("deck-select")+'"]').click();
 	}
+
+	//////////////////////////////////
+	// 要素の入れ替えを可能にする
+	//////////////////////////////////
+	$('#deck_lrig ul').sortable({
+		update: function(event, ui) {
+			saveDeck();
+		}
+	});
+	$('#deck_base ul').sortable({
+		update: function(event, ui) {
+			saveDeck();
+		}
+	});
 
 	//////////////////////////////////
 	// 高さを調整

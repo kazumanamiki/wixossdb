@@ -22,6 +22,9 @@ gem 'settingslogic'		#=> config/initializers/0_settings.rb
 # jQueryでクッキー使用
 gem 'jquery-cookie-rails'
 
+# jQueryUI (install後に「rails generate jquery:install --ui」をする)
+gem 'jquery-ui-rails'
+
 group :development, :test do
 	gem 'sqlite3'
 	gem 'rspec-rails'
