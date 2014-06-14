@@ -1,5 +1,7 @@
+<% provide(:title, "@#{@deck.user.screen_name}[#{@deck.name}]") %>
+<%= render 'share/iine' %>
 <div id="show-deck">
-	<h1><%= @deck.name %><small><small>作成者 <%= @deck.user.name %></small></small></h1>
+	<h1><%= @deck.name %><small><small>作成者 @<%= @deck.user.screen_name %></small></small></h1>
 	<div class="panel panel-default">
 		<div class="panel-heading"><h2>コメント</h2></div>
 		<div class="panel-body"><p><%= render 'cards/card_text', text: @deck.comment %></p></div>
