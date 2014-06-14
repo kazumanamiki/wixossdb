@@ -4,6 +4,7 @@
 cards_ahash.each do |card_ahash|
 	card = card_ahash[1][:card_data]
 	deck = card_ahash[1][:deck_data]
+	if card
 %>
 		<tr>
 			<th><%= render 'cards/card_image', card: card %></th>
@@ -26,6 +27,9 @@ cards_ahash.each do |card_ahash|
 			<% end %>
 			</td>
 		</tr>
-		<% end %>
+<%
+	end
+end
+%>
 	</tbody>
 </table>
