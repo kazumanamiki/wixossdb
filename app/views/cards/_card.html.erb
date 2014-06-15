@@ -92,7 +92,7 @@
 		<% end %>
 			<span><%= link_to 'Edit', edit_card_path(card) %></span>
 		<% if current_user && current_user.screen_name == "namityo" %>
-			　|　<span><%= link_to 'Destory', card_path(card), method: :delete %></span>
+			　|　<span><%= link_to 'Destory', card_path(card), method: :delete, "data-confirm" => "削除して宜しいですか？" %></span>
 		<% end %>
 		</div>
 	</div>
