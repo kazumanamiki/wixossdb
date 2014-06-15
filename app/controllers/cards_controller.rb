@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:show, :edit, :update, :destroy, :price]
+  before_action :admin_user, only: [:destroy]
 
   def index
     if params.key?(:sq)
@@ -102,6 +103,11 @@ class CardsController < ApplicationController
       ret.merge!({ life_burst_cont_any: params[:sq][:life_burst].split(' ') })      if params[:sq].key?(:life_burst)      && !params[:sq][:life_burst].blank?
 
       return ret
+    end
+
+    def admin_user
+      return redirect_to root_path if current_user.nil?
+      return redirect_to root_path unless current_user.screen_name == "namityo"
     end
 
 end

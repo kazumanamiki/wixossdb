@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width">
+	<% if request.smart_phone? %>
+		<meta name="viewport" content="width=device-width">
+	<% end %>
 	<title><%= full_title(yield(:title)) %></title>
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>

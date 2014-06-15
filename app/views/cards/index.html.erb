@@ -6,19 +6,17 @@
 <% end %>
 
 <% if @cards.empty? %>
-	<h1>WIXOSSカードデータベース</h1>
+	<h2>WIXOSSカードデータベース</h2>
 	<p>
 		カード追加、編集はご自由にどうぞ。<br>
-		最新のフルブラウザでデッキの作成ができます。（デッキ一覧を作るかは検討中）<br>
-		バグ、要望に関してはtwitterでどうぞ。<br>
+		最新のフルブラウザでデッキの作成ができます。デッキメモにどうぞ。<br>
 		データの削除は行えなくしています。必要であればご要望下さい。<br>
-		カードイラストの確認は<a href="http://www.takaratomy.co.jp/products/wixoss/">公式HP</a>へ<br>
 	</p>
-	<h2>WIXOSS公式ツイート</h2>
+	<h2>公式ツイート</h2>
 	<a class="twitter-timeline" href="https://twitter.com/wixoss_TCG" data-widget-id="472210111276929024">@wixoss_TCG からのツイート</a>
 	<script src="//platform.twitter.com/widgets.js"></script>
 <% else %>
-	<p id="page-top"><a href="#wrap">トップへ</a></p>
+	<p id="page-top" style="display:none;"><a href="#wrap">トップへ</a></p>
 
 	<%= render 'cards/price' %>
 <% end %>

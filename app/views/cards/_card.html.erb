@@ -91,6 +91,9 @@
 			<span><%= link_to 'Show', card %></span>　|　
 		<% end %>
 			<span><%= link_to 'Edit', edit_card_path(card) %></span>
+		<% if current_user && current_user.screen_name == "namityo" %>
+			　|　<span><%= link_to 'Destory', card_path(card), method: :delete %></span>
+		<% end %>
 		</div>
 	</div>
 </div>

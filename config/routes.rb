@@ -1,5 +1,5 @@
 Wixossdb::Application.routes.draw do
-  resources :cards, only: [:index, :show, :new, :edit, :create, :update] do
+  resources :cards, only: [:index, :show, :new, :edit, :create, :update, :destroy] do
     member do
       get 'price'
     end
