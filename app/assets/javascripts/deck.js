@@ -240,7 +240,7 @@ $(function() {
 		}, 300);
 
 		// クッキー保持（開いている状態）
-		$.cookie("deck-open", "1");
+		$.cookie("deck-open", "1", { path:'/' });
 	});
 
 	// 閉じるボタンクリック
@@ -250,7 +250,7 @@ $(function() {
 		}, 300);
 
 		// クッキー保持（閉じている状態）
-		$.cookie("deck-open", "0");
+		$.cookie("deck-open", "0", { path:'/' });
 	});
 
 	// タブクリック
@@ -258,7 +258,7 @@ $(function() {
 		$(this).tab('show');
 
 		// クッキー保持（タブ状態）
-		$.cookie("deck-tab", $(this).attr('href'));
+		$.cookie("deck-tab", $(this).attr('href'), { path:'/' });
 	});
 
 	// デッキの新規作成クリック
@@ -293,7 +293,7 @@ $(function() {
 				setDeck(data);
 
 				// クッキー保持（選択デッキ）
-				$.cookie("deck-select", deck_id);
+				$.cookie("deck-select", deck_id, { path:'/' });
 			} else {
 				alert("デッキが存在しません");
 			}

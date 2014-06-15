@@ -1,5 +1,11 @@
 body {
 	font-size: 1.3em;
+
+	/* 背景画像 */
+	background-image: asset-data-url("wixossdb_back.png");
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-attachment:fixed;
 }
 
 h2 {
