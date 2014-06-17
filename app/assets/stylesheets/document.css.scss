@@ -1,0 +1,27 @@
+.document {
+	h1 {
+		margin-bottom: 20px;
+	}
+	h2 {
+		margin-top: 30px;
+		margin-bottom: 10px;
+		padding-left: 25px;
+
+		background-image: asset-data-url("i_burst.png");
+		background-repeat: no-repeat;
+		background-position: left center;
+	}
+	p {
+		margin: 10px 0px 10px 20px;
+
+		font-size: 15px;
+		line-height: 20px;
+
+		background-color: #fff;
+	}
+	img {
+		margin: 10px 0;
+		border: 1px solid #000;
+		border-radius: 10px;
+	}
+}

@@ -8,6 +8,7 @@ Wixossdb::Application.routes.draw do
   resources :decks, only: [:index, :create, :show, :update, :destroy]
 
   root 'cards#index'
+  get  '/howtodeck', to: 'static_pages#deck'
   get  '/auth/:provider/callback', to: 'sessions#callback'
   post '/auth/:provider/callback', to: 'sessions#callback'
   get  '/logout' => 'sessions#destroy', as: :logout
