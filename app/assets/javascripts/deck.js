@@ -347,6 +347,18 @@ $(function() {
 		// 自動セーブ
 		saveDeck();
 	});
+
+	// カード名クリック
+	$(document).on('click', '#deck_lrig span.name', function() {
+		var id = $(this).closest('a').attr('card-id');
+		var deck_url = "/cards/" + id;
+		window.open(deck_url);
+	});
+	$(document).on('click', '#deck_base span.name', function() {
+		var id = $(this).closest('a').attr('card-id');
+		var deck_url = "/cards/" + id;
+		window.open(deck_url);
+	});
 });
 
 
