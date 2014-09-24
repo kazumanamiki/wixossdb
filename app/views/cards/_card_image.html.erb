@@ -1,5 +1,1 @@
-<% if card.illust_url.blank? %>
-	<%= image_tag "noimage.jpg", alt: "No Image" %>
-<% else %>
-	<img src="<%= card.illust_url %>"></img>
-<% end %>
+<img src="http://omokichi.sakura.ne.jp/wixoss/image/<%= card.card_number %>.jpg"></img>
